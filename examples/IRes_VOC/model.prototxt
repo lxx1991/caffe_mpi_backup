@@ -8397,5 +8397,9 @@ layer {
   top: "loss"
   loss_param {
     ignore_label: 255
+    hm_ratio: 0.5
+  }
+  softmax_param {
+    engine: CAFFE
   }
 }

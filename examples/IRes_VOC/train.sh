@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-GOOGLE_LOG_DIR=examples/IRes_VOC/log \
+GOOGLE_LOG_DIR=examples/IRes_VOC/LOG \
     /usr/local/openmpi/bin/mpirun -np 2 \
     build/install/bin/caffe train \
     --solver=examples/IRes_VOC/IRes_VOC_solver.prototxt \
