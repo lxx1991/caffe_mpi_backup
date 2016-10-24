@@ -41,6 +41,19 @@ __global__ void im2col_gpu_kernel(const int n, const Dtype* data_im,
   }
 }
 
+
+
+template <typename Dtype>
+void im2col_gpu(const Dtype* data_im, const int channels,
+    const int height, const int width, const int kernel_h, const int kernel_w,
+    const int pad_h, const int pad_w,
+    const int stride_h, const int stride_w,
+    Dtype* data_col) {
+
+  im2col_gpu(data_im, channels, height, width, kernel_h, kernel_w,
+    pad_h, pad_w, stride_h, stride_w, 1, 1, data_col);
+}
+
 template <typename Dtype>
 void im2col_gpu(const Dtype* data_im, const int channels,
     const int height, const int width, const int kernel_h, const int kernel_w,
@@ -64,7 +77,6 @@ void im2col_gpu(const Dtype* data_im, const int channels,
   CUDA_POST_KERNEL_CHECK;
 }
 
-
 // Explicit instantiation
 template void im2col_gpu<float>(const float* data_im, const int channels,
     const int height, const int width, const int kernel_h, const int kernel_w,
@@ -74,6 +86,16 @@ template void im2col_gpu<double>(const double* data_im, const int channels,
     const int height, const int width, const int kernel_h, const int kernel_w,
     const int pad_h, const int pad_w, const int stride_h, const int stride_w,
     const int dilation_h, const int dilation_w, double* data_col);
+
+// Explicit instantiation
+template void im2col_gpu<float>(const float* data_im, const int channels,
+    const int height, const int width, const int kernel_h, const int kernel_w,
+    const int pad_h, const int pad_w, const int stride_h, const int stride_w, 
+    float* data_col);
+template void im2col_gpu<double>(const double* data_im, const int channels,
+    const int height, const int width, const int kernel_h, const int kernel_w,
+    const int pad_h, const int pad_w, const int stride_h, const int stride_w, 
+    double* data_col);
 
 template <typename Dtype>
 __global__ void col2im_gpu_kernel(const int n, const Dtype* data_col,
@@ -116,6 +138,16 @@ __global__ void col2im_gpu_kernel(const int n, const Dtype* data_col,
   }
 }
 
+
+template <typename Dtype>
+void col2im_gpu(const Dtype* data_col, const int channels,
+    const int height, const int width, const int kernel_h, const int kernel_w,
+    const int pad_h, const int pad_w, const int stride_h,
+    const int stride_w, Dtype* data_im) {
+  col2im_gpu(data_col, channels, height, width, kernel_h, kernel_w,
+    pad_h, pad_w, stride_h, stride_w, 1, 1, data_im);
+}
+
 template <typename Dtype>
 void col2im_gpu(const Dtype* data_col, const int channels,
     const int height, const int width, const int kernel_h, const int kernel_w,
@@ -149,5 +181,15 @@ template void col2im_gpu<double>(const double* data_col, const int channels,
     const int pad_h, const int pad_w, const int stride_h,
     const int stride_w, const int dilation_h, const int dilation_w,
     double* data_im);
+
+// Explicit instantiation
+template void col2im_gpu<float>(const float* data_col, const int channels,
+    const int height, const int width, const int kernel_h, const int kernel_w,
+    const int pad_h, const int pad_w, const int stride_h,
+    const int stride_w, float* data_im);
+template void col2im_gpu<double>(const double* data_col, const int channels,
+    const int height, const int width, const int kernel_h, const int kernel_w,
+    const int pad_h, const int pad_w, const int stride_h,
+    const int stride_w, double* data_im);
 
 }  // namespace caffe

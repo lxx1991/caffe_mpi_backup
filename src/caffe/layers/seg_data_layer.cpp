@@ -52,11 +52,15 @@ void SegDataLayer<Dtype>:: DataLayerSetUp(const vector<Blob<Dtype>*>& bottom, co
 	CHECK(ReadSegDataToDatum(lines_[lines_id_].first, lines_[lines_id_].second, &datum_data, &datum_label, true));
 
 
-	top[0]->Reshape(1, datum_data.channels(), (datum_data.height() / stride) * stride, (datum_data.width() / stride) * stride);
-	this->prefetch_data_.Reshape(1, datum_data.channels(), (datum_data.height() / stride) * stride, (datum_data.width() / stride) * stride);
+	int crop_height = datum_data.height() / stride * stride;
+	int crop_width = datum_data.width() / stride * stride;
 
-	top[1]->Reshape(1, datum_label.channels(), (datum_data.height() / stride) * stride, (datum_data.width() / stride) * stride);
-	this->prefetch_label_.Reshape(1, datum_label.channels(), (datum_label.height() / stride) * stride, (datum_label.width() / stride) * stride);
+
+	top[0]->Reshape(1, datum_data.channels(), crop_height, crop_width);
+	this->prefetch_data_.Reshape(1, datum_data.channels(), crop_height, crop_width);
+
+	top[1]->Reshape(1, datum_label.channels(), crop_height, crop_width);
+	this->prefetch_label_.Reshape(1, datum_label.channels(), crop_height, crop_width);
 
 	LOG(INFO) << "output data size: " << top[0]->num() << "," << top[0]->channels() << "," << top[0]->height() << "," << top[0]->width();
 	LOG(INFO) << "output label size: " << top[1]->num() << "," << top[1]->channels() << "," << top[1]->height() << "," << top[1]->width();
@@ -80,7 +84,6 @@ void SegDataLayer<Dtype>::InternalThreadEntry(){
 	CHECK(ReadSegDataToDatum(lines_[lines_id_].first, lines_[lines_id_].second, &datum_data, &datum_label, true));
 
 	this->data_transformer_->Transform(datum_data, datum_label, &this->prefetch_data_, &this->prefetch_label_);
-
 
 	//next iteration
 	lines_id_++;

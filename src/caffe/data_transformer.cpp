@@ -386,7 +386,7 @@ void DataTransformer<Dtype>::Transform(const Datum& datum_data, const Datum& dat
       int data_index = h * datum_width + w;
       M.at<uchar>(h, w) = static_cast<uint8_t>(label[data_index]);
     }
-  cv::resize(M, M, cv::Size(width, height), CV_INTER_NN);
+  cv::resize(M, M, cv::Size(width, height), 0, 0, CV_INTER_NN);
   cv::Mat cropM(M, cv::Rect(w_off, h_off, crop_width, crop_height));
   for (int h = 0; h < crop_height; ++h)
     for (int w = 0; w < crop_width; ++w) 
