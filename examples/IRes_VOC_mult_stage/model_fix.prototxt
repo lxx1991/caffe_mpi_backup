@@ -25,8 +25,8 @@ layer {
   bottom: "data"
   top: "conv1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -53,11 +53,11 @@ layer {
   bottom: "conv1"
   top: "conv1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -84,8 +84,8 @@ layer {
   bottom: "conv1_bn"
   top: "conv1_2"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -112,11 +112,11 @@ layer {
   bottom: "conv1_2"
   top: "conv1_2_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -143,8 +143,8 @@ layer {
   bottom: "conv1_2_bn"
   top: "conv1_3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -171,11 +171,11 @@ layer {
   bottom: "conv1_3"
   top: "conv1_3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -217,8 +217,8 @@ layer {
   bottom: "conv1_3_bn"
   top: "conv1_branch"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -245,11 +245,11 @@ layer {
   bottom: "conv1_branch"
   top: "conv1_branch_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -283,8 +283,8 @@ layer {
   bottom: "conv1_concat"
   top: "conv2_short_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -311,11 +311,11 @@ layer {
   bottom: "conv2_short_1x1"
   top: "conv2_short_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -342,8 +342,8 @@ layer {
   bottom: "conv2_short_1x1_bn"
   top: "conv2_short_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -370,11 +370,11 @@ layer {
   bottom: "conv2_short_3x3"
   top: "conv2_short_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -401,8 +401,8 @@ layer {
   bottom: "conv1_concat"
   top: "conv2_long_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -429,11 +429,11 @@ layer {
   bottom: "conv2_long_1x1"
   top: "conv2_long_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -460,8 +460,8 @@ layer {
   bottom: "conv2_long_1x1_bn"
   top: "conv2_long_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -488,11 +488,11 @@ layer {
   bottom: "conv2_long_7x1"
   top: "conv2_long_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -519,8 +519,8 @@ layer {
   bottom: "conv2_long_7x1_bn"
   top: "conv2_long_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -547,11 +547,11 @@ layer {
   bottom: "conv2_long_1x7"
   top: "conv2_long_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -578,8 +578,8 @@ layer {
   bottom: "conv2_long_1x7_bn"
   top: "conv2_long_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -606,11 +606,11 @@ layer {
   bottom: "conv2_long_3x3"
   top: "conv2_long_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -659,8 +659,8 @@ layer {
   bottom: "conv2_concat"
   top: "conv2_branch"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -687,11 +687,11 @@ layer {
   bottom: "conv2_branch"
   top: "conv2_branch_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -725,8 +725,8 @@ layer {
   bottom: "stem_concat"
   top: "inception_resnet_a_1_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -753,11 +753,11 @@ layer {
   bottom: "inception_resnet_a_1_path1_1x1"
   top: "inception_resnet_a_1_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -784,8 +784,8 @@ layer {
   bottom: "inception_resnet_a_1_path1_1x1_bn"
   top: "inception_resnet_a_1_path1_3x3_1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -812,11 +812,11 @@ layer {
   bottom: "inception_resnet_a_1_path1_3x3_1"
   top: "inception_resnet_a_1_path1_3x3_1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -843,8 +843,8 @@ layer {
   bottom: "inception_resnet_a_1_path1_3x3_1_bn"
   top: "inception_resnet_a_1_path1_3x3_2"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -871,11 +871,11 @@ layer {
   bottom: "inception_resnet_a_1_path1_3x3_2"
   top: "inception_resnet_a_1_path1_3x3_2_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -902,8 +902,8 @@ layer {
   bottom: "stem_concat"
   top: "inception_resnet_a_1_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -930,11 +930,11 @@ layer {
   bottom: "inception_resnet_a_1_path2_1x1"
   top: "inception_resnet_a_1_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -961,8 +961,8 @@ layer {
   bottom: "inception_resnet_a_1_path2_1x1_bn"
   top: "inception_resnet_a_1_path2_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -989,11 +989,11 @@ layer {
   bottom: "inception_resnet_a_1_path2_3x3"
   top: "inception_resnet_a_1_path2_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1020,8 +1020,8 @@ layer {
   bottom: "stem_concat"
   top: "inception_resnet_a_1_path3_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1048,11 +1048,11 @@ layer {
   bottom: "inception_resnet_a_1_path3_1x1"
   top: "inception_resnet_a_1_path3_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1087,8 +1087,8 @@ layer {
   bottom: "inception_resnet_a_1_concat"
   top: "inception_resnet_a_1_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1115,11 +1115,11 @@ layer {
   bottom: "inception_resnet_a_1_conv_1x1"
   top: "inception_resnet_a_1_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1158,8 +1158,8 @@ layer {
   bottom: "inception_resnet_a_1_elt"
   top: "inception_resnet_a_2_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1186,11 +1186,11 @@ layer {
   bottom: "inception_resnet_a_2_path1_1x1"
   top: "inception_resnet_a_2_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1217,8 +1217,8 @@ layer {
   bottom: "inception_resnet_a_2_path1_1x1_bn"
   top: "inception_resnet_a_2_path1_3x3_1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1245,11 +1245,11 @@ layer {
   bottom: "inception_resnet_a_2_path1_3x3_1"
   top: "inception_resnet_a_2_path1_3x3_1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1276,8 +1276,8 @@ layer {
   bottom: "inception_resnet_a_2_path1_3x3_1_bn"
   top: "inception_resnet_a_2_path1_3x3_2"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1304,11 +1304,11 @@ layer {
   bottom: "inception_resnet_a_2_path1_3x3_2"
   top: "inception_resnet_a_2_path1_3x3_2_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1335,8 +1335,8 @@ layer {
   bottom: "inception_resnet_a_1_elt"
   top: "inception_resnet_a_2_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1363,11 +1363,11 @@ layer {
   bottom: "inception_resnet_a_2_path2_1x1"
   top: "inception_resnet_a_2_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1394,8 +1394,8 @@ layer {
   bottom: "inception_resnet_a_2_path2_1x1_bn"
   top: "inception_resnet_a_2_path2_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1422,11 +1422,11 @@ layer {
   bottom: "inception_resnet_a_2_path2_3x3"
   top: "inception_resnet_a_2_path2_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1453,8 +1453,8 @@ layer {
   bottom: "inception_resnet_a_1_elt"
   top: "inception_resnet_a_2_path3_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1481,11 +1481,11 @@ layer {
   bottom: "inception_resnet_a_2_path3_1x1"
   top: "inception_resnet_a_2_path3_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1520,8 +1520,8 @@ layer {
   bottom: "inception_resnet_a_2_concat"
   top: "inception_resnet_a_2_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1548,11 +1548,11 @@ layer {
   bottom: "inception_resnet_a_2_conv_1x1"
   top: "inception_resnet_a_2_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1591,8 +1591,8 @@ layer {
   bottom: "inception_resnet_a_2_elt"
   top: "inception_resnet_a_3_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1619,11 +1619,11 @@ layer {
   bottom: "inception_resnet_a_3_path1_1x1"
   top: "inception_resnet_a_3_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1650,8 +1650,8 @@ layer {
   bottom: "inception_resnet_a_3_path1_1x1_bn"
   top: "inception_resnet_a_3_path1_3x3_1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1678,11 +1678,11 @@ layer {
   bottom: "inception_resnet_a_3_path1_3x3_1"
   top: "inception_resnet_a_3_path1_3x3_1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1709,8 +1709,8 @@ layer {
   bottom: "inception_resnet_a_3_path1_3x3_1_bn"
   top: "inception_resnet_a_3_path1_3x3_2"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1737,11 +1737,11 @@ layer {
   bottom: "inception_resnet_a_3_path1_3x3_2"
   top: "inception_resnet_a_3_path1_3x3_2_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1768,8 +1768,8 @@ layer {
   bottom: "inception_resnet_a_2_elt"
   top: "inception_resnet_a_3_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1796,11 +1796,11 @@ layer {
   bottom: "inception_resnet_a_3_path2_1x1"
   top: "inception_resnet_a_3_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1827,8 +1827,8 @@ layer {
   bottom: "inception_resnet_a_3_path2_1x1_bn"
   top: "inception_resnet_a_3_path2_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1855,11 +1855,11 @@ layer {
   bottom: "inception_resnet_a_3_path2_3x3"
   top: "inception_resnet_a_3_path2_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1886,8 +1886,8 @@ layer {
   bottom: "inception_resnet_a_2_elt"
   top: "inception_resnet_a_3_path3_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1914,11 +1914,11 @@ layer {
   bottom: "inception_resnet_a_3_path3_1x1"
   top: "inception_resnet_a_3_path3_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -1953,8 +1953,8 @@ layer {
   bottom: "inception_resnet_a_3_concat"
   top: "inception_resnet_a_3_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -1981,11 +1981,11 @@ layer {
   bottom: "inception_resnet_a_3_conv_1x1"
   top: "inception_resnet_a_3_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2024,8 +2024,8 @@ layer {
   bottom: "inception_resnet_a_3_elt"
   top: "inception_resnet_a_4_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2052,11 +2052,11 @@ layer {
   bottom: "inception_resnet_a_4_path1_1x1"
   top: "inception_resnet_a_4_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2083,8 +2083,8 @@ layer {
   bottom: "inception_resnet_a_4_path1_1x1_bn"
   top: "inception_resnet_a_4_path1_3x3_1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2111,11 +2111,11 @@ layer {
   bottom: "inception_resnet_a_4_path1_3x3_1"
   top: "inception_resnet_a_4_path1_3x3_1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2142,8 +2142,8 @@ layer {
   bottom: "inception_resnet_a_4_path1_3x3_1_bn"
   top: "inception_resnet_a_4_path1_3x3_2"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2170,11 +2170,11 @@ layer {
   bottom: "inception_resnet_a_4_path1_3x3_2"
   top: "inception_resnet_a_4_path1_3x3_2_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2201,8 +2201,8 @@ layer {
   bottom: "inception_resnet_a_3_elt"
   top: "inception_resnet_a_4_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2229,11 +2229,11 @@ layer {
   bottom: "inception_resnet_a_4_path2_1x1"
   top: "inception_resnet_a_4_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2260,8 +2260,8 @@ layer {
   bottom: "inception_resnet_a_4_path2_1x1_bn"
   top: "inception_resnet_a_4_path2_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2288,11 +2288,11 @@ layer {
   bottom: "inception_resnet_a_4_path2_3x3"
   top: "inception_resnet_a_4_path2_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2319,8 +2319,8 @@ layer {
   bottom: "inception_resnet_a_3_elt"
   top: "inception_resnet_a_4_path3_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2347,11 +2347,11 @@ layer {
   bottom: "inception_resnet_a_4_path3_1x1"
   top: "inception_resnet_a_4_path3_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2386,8 +2386,8 @@ layer {
   bottom: "inception_resnet_a_4_concat"
   top: "inception_resnet_a_4_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2414,11 +2414,11 @@ layer {
   bottom: "inception_resnet_a_4_conv_1x1"
   top: "inception_resnet_a_4_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2457,8 +2457,8 @@ layer {
   bottom: "inception_resnet_a_4_elt"
   top: "inception_resnet_a_5_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2485,11 +2485,11 @@ layer {
   bottom: "inception_resnet_a_5_path1_1x1"
   top: "inception_resnet_a_5_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2516,8 +2516,8 @@ layer {
   bottom: "inception_resnet_a_5_path1_1x1_bn"
   top: "inception_resnet_a_5_path1_3x3_1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2544,11 +2544,11 @@ layer {
   bottom: "inception_resnet_a_5_path1_3x3_1"
   top: "inception_resnet_a_5_path1_3x3_1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2575,8 +2575,8 @@ layer {
   bottom: "inception_resnet_a_5_path1_3x3_1_bn"
   top: "inception_resnet_a_5_path1_3x3_2"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2603,11 +2603,11 @@ layer {
   bottom: "inception_resnet_a_5_path1_3x3_2"
   top: "inception_resnet_a_5_path1_3x3_2_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2634,8 +2634,8 @@ layer {
   bottom: "inception_resnet_a_4_elt"
   top: "inception_resnet_a_5_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2662,11 +2662,11 @@ layer {
   bottom: "inception_resnet_a_5_path2_1x1"
   top: "inception_resnet_a_5_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2693,8 +2693,8 @@ layer {
   bottom: "inception_resnet_a_5_path2_1x1_bn"
   top: "inception_resnet_a_5_path2_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2721,11 +2721,11 @@ layer {
   bottom: "inception_resnet_a_5_path2_3x3"
   top: "inception_resnet_a_5_path2_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2752,8 +2752,8 @@ layer {
   bottom: "inception_resnet_a_4_elt"
   top: "inception_resnet_a_5_path3_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2780,11 +2780,11 @@ layer {
   bottom: "inception_resnet_a_5_path3_1x1"
   top: "inception_resnet_a_5_path3_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2819,8 +2819,8 @@ layer {
   bottom: "inception_resnet_a_5_concat"
   top: "inception_resnet_a_5_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2847,11 +2847,11 @@ layer {
   bottom: "inception_resnet_a_5_conv_1x1"
   top: "inception_resnet_a_5_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2890,8 +2890,8 @@ layer {
   bottom: "inception_resnet_a_5_elt"
   top: "reduction_a_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2918,11 +2918,11 @@ layer {
   bottom: "reduction_a_path1_1x1"
   top: "reduction_a_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -2949,8 +2949,8 @@ layer {
   bottom: "reduction_a_path1_1x1_bn"
   top: "reduction_a_path1_3x3_1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -2977,11 +2977,11 @@ layer {
   bottom: "reduction_a_path1_3x3_1"
   top: "reduction_a_path1_3x3_1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3008,8 +3008,8 @@ layer {
   bottom: "reduction_a_path1_3x3_1_bn"
   top: "reduction_a_path1_3x3_2"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3036,11 +3036,11 @@ layer {
   bottom: "reduction_a_path1_3x3_2"
   top: "reduction_a_path1_3x3_2_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3067,8 +3067,8 @@ layer {
   bottom: "inception_resnet_a_5_elt"
   top: "reduction_a_path2_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3095,11 +3095,11 @@ layer {
   bottom: "reduction_a_path2_3x3"
   top: "reduction_a_path2_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3153,8 +3153,8 @@ layer {
   bottom: "reduction_a_concat"
   top: "inception_resnet_b_1_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3181,11 +3181,11 @@ layer {
   bottom: "inception_resnet_b_1_path1_1x1"
   top: "inception_resnet_b_1_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3212,8 +3212,8 @@ layer {
   bottom: "inception_resnet_b_1_path1_1x1_bn"
   top: "inception_resnet_b_1_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3241,11 +3241,11 @@ layer {
   bottom: "inception_resnet_b_1_path1_1x7"
   top: "inception_resnet_b_1_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3272,8 +3272,8 @@ layer {
   bottom: "inception_resnet_b_1_path1_1x7_bn"
   top: "inception_resnet_b_1_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3301,11 +3301,11 @@ layer {
   bottom: "inception_resnet_b_1_path1_7x1"
   top: "inception_resnet_b_1_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3332,8 +3332,8 @@ layer {
   bottom: "reduction_a_concat"
   top: "inception_resnet_b_1_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3360,11 +3360,11 @@ layer {
   bottom: "inception_resnet_b_1_path2_1x1"
   top: "inception_resnet_b_1_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3398,8 +3398,8 @@ layer {
   bottom: "inception_resnet_b_1_concat"
   top: "inception_resnet_b_1_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3426,11 +3426,11 @@ layer {
   bottom: "inception_resnet_b_1_conv_1x1"
   top: "inception_resnet_b_1_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3469,8 +3469,8 @@ layer {
   bottom: "inception_resnet_b_1_elt"
   top: "inception_resnet_b_2_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3497,11 +3497,11 @@ layer {
   bottom: "inception_resnet_b_2_path1_1x1"
   top: "inception_resnet_b_2_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3528,8 +3528,8 @@ layer {
   bottom: "inception_resnet_b_2_path1_1x1_bn"
   top: "inception_resnet_b_2_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3557,11 +3557,11 @@ layer {
   bottom: "inception_resnet_b_2_path1_1x7"
   top: "inception_resnet_b_2_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3588,8 +3588,8 @@ layer {
   bottom: "inception_resnet_b_2_path1_1x7_bn"
   top: "inception_resnet_b_2_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3617,11 +3617,11 @@ layer {
   bottom: "inception_resnet_b_2_path1_7x1"
   top: "inception_resnet_b_2_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3648,8 +3648,8 @@ layer {
   bottom: "inception_resnet_b_1_elt"
   top: "inception_resnet_b_2_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3676,11 +3676,11 @@ layer {
   bottom: "inception_resnet_b_2_path2_1x1"
   top: "inception_resnet_b_2_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3714,8 +3714,8 @@ layer {
   bottom: "inception_resnet_b_2_concat"
   top: "inception_resnet_b_2_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3742,11 +3742,11 @@ layer {
   bottom: "inception_resnet_b_2_conv_1x1"
   top: "inception_resnet_b_2_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3785,8 +3785,8 @@ layer {
   bottom: "inception_resnet_b_2_elt"
   top: "inception_resnet_b_3_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3813,11 +3813,11 @@ layer {
   bottom: "inception_resnet_b_3_path1_1x1"
   top: "inception_resnet_b_3_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3844,8 +3844,8 @@ layer {
   bottom: "inception_resnet_b_3_path1_1x1_bn"
   top: "inception_resnet_b_3_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3873,11 +3873,11 @@ layer {
   bottom: "inception_resnet_b_3_path1_1x7"
   top: "inception_resnet_b_3_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3904,8 +3904,8 @@ layer {
   bottom: "inception_resnet_b_3_path1_1x7_bn"
   top: "inception_resnet_b_3_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3933,11 +3933,11 @@ layer {
   bottom: "inception_resnet_b_3_path1_7x1"
   top: "inception_resnet_b_3_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -3964,8 +3964,8 @@ layer {
   bottom: "inception_resnet_b_2_elt"
   top: "inception_resnet_b_3_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -3992,11 +3992,11 @@ layer {
   bottom: "inception_resnet_b_3_path2_1x1"
   top: "inception_resnet_b_3_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4030,8 +4030,8 @@ layer {
   bottom: "inception_resnet_b_3_concat"
   top: "inception_resnet_b_3_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4058,11 +4058,11 @@ layer {
   bottom: "inception_resnet_b_3_conv_1x1"
   top: "inception_resnet_b_3_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4101,8 +4101,8 @@ layer {
   bottom: "inception_resnet_b_3_elt"
   top: "inception_resnet_b_4_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4129,11 +4129,11 @@ layer {
   bottom: "inception_resnet_b_4_path1_1x1"
   top: "inception_resnet_b_4_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4160,8 +4160,8 @@ layer {
   bottom: "inception_resnet_b_4_path1_1x1_bn"
   top: "inception_resnet_b_4_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4189,11 +4189,11 @@ layer {
   bottom: "inception_resnet_b_4_path1_1x7"
   top: "inception_resnet_b_4_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4220,8 +4220,8 @@ layer {
   bottom: "inception_resnet_b_4_path1_1x7_bn"
   top: "inception_resnet_b_4_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4249,11 +4249,11 @@ layer {
   bottom: "inception_resnet_b_4_path1_7x1"
   top: "inception_resnet_b_4_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4280,8 +4280,8 @@ layer {
   bottom: "inception_resnet_b_3_elt"
   top: "inception_resnet_b_4_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4308,11 +4308,11 @@ layer {
   bottom: "inception_resnet_b_4_path2_1x1"
   top: "inception_resnet_b_4_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4346,8 +4346,8 @@ layer {
   bottom: "inception_resnet_b_4_concat"
   top: "inception_resnet_b_4_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4374,11 +4374,11 @@ layer {
   bottom: "inception_resnet_b_4_conv_1x1"
   top: "inception_resnet_b_4_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4417,8 +4417,8 @@ layer {
   bottom: "inception_resnet_b_4_elt"
   top: "inception_resnet_b_5_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4445,11 +4445,11 @@ layer {
   bottom: "inception_resnet_b_5_path1_1x1"
   top: "inception_resnet_b_5_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4476,8 +4476,8 @@ layer {
   bottom: "inception_resnet_b_5_path1_1x1_bn"
   top: "inception_resnet_b_5_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4505,11 +4505,11 @@ layer {
   bottom: "inception_resnet_b_5_path1_1x7"
   top: "inception_resnet_b_5_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4536,8 +4536,8 @@ layer {
   bottom: "inception_resnet_b_5_path1_1x7_bn"
   top: "inception_resnet_b_5_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4565,11 +4565,11 @@ layer {
   bottom: "inception_resnet_b_5_path1_7x1"
   top: "inception_resnet_b_5_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4596,8 +4596,8 @@ layer {
   bottom: "inception_resnet_b_4_elt"
   top: "inception_resnet_b_5_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4624,11 +4624,11 @@ layer {
   bottom: "inception_resnet_b_5_path2_1x1"
   top: "inception_resnet_b_5_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4662,8 +4662,8 @@ layer {
   bottom: "inception_resnet_b_5_concat"
   top: "inception_resnet_b_5_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4690,11 +4690,11 @@ layer {
   bottom: "inception_resnet_b_5_conv_1x1"
   top: "inception_resnet_b_5_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4733,8 +4733,8 @@ layer {
   bottom: "inception_resnet_b_5_elt"
   top: "inception_resnet_b_6_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4761,11 +4761,11 @@ layer {
   bottom: "inception_resnet_b_6_path1_1x1"
   top: "inception_resnet_b_6_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4792,8 +4792,8 @@ layer {
   bottom: "inception_resnet_b_6_path1_1x1_bn"
   top: "inception_resnet_b_6_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4820,11 +4820,11 @@ layer {
   bottom: "inception_resnet_b_6_path1_1x7"
   top: "inception_resnet_b_6_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4851,8 +4851,8 @@ layer {
   bottom: "inception_resnet_b_6_path1_1x7_bn"
   top: "inception_resnet_b_6_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4880,11 +4880,11 @@ layer {
   bottom: "inception_resnet_b_6_path1_7x1"
   top: "inception_resnet_b_6_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4911,8 +4911,8 @@ layer {
   bottom: "inception_resnet_b_5_elt"
   top: "inception_resnet_b_6_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -4939,11 +4939,11 @@ layer {
   bottom: "inception_resnet_b_6_path2_1x1"
   top: "inception_resnet_b_6_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -4977,8 +4977,8 @@ layer {
   bottom: "inception_resnet_b_6_concat"
   top: "inception_resnet_b_6_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5005,11 +5005,11 @@ layer {
   bottom: "inception_resnet_b_6_conv_1x1"
   top: "inception_resnet_b_6_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5048,8 +5048,8 @@ layer {
   bottom: "inception_resnet_b_6_elt"
   top: "inception_resnet_b_7_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5076,11 +5076,11 @@ layer {
   bottom: "inception_resnet_b_7_path1_1x1"
   top: "inception_resnet_b_7_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5107,8 +5107,8 @@ layer {
   bottom: "inception_resnet_b_7_path1_1x1_bn"
   top: "inception_resnet_b_7_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5136,11 +5136,11 @@ layer {
   bottom: "inception_resnet_b_7_path1_1x7"
   top: "inception_resnet_b_7_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5167,8 +5167,8 @@ layer {
   bottom: "inception_resnet_b_7_path1_1x7_bn"
   top: "inception_resnet_b_7_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5196,11 +5196,11 @@ layer {
   bottom: "inception_resnet_b_7_path1_7x1"
   top: "inception_resnet_b_7_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5227,8 +5227,8 @@ layer {
   bottom: "inception_resnet_b_6_elt"
   top: "inception_resnet_b_7_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5255,11 +5255,11 @@ layer {
   bottom: "inception_resnet_b_7_path2_1x1"
   top: "inception_resnet_b_7_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5293,8 +5293,8 @@ layer {
   bottom: "inception_resnet_b_7_concat"
   top: "inception_resnet_b_7_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5321,11 +5321,11 @@ layer {
   bottom: "inception_resnet_b_7_conv_1x1"
   top: "inception_resnet_b_7_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5364,8 +5364,8 @@ layer {
   bottom: "inception_resnet_b_7_elt"
   top: "inception_resnet_b_8_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5392,11 +5392,11 @@ layer {
   bottom: "inception_resnet_b_8_path1_1x1"
   top: "inception_resnet_b_8_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5423,8 +5423,8 @@ layer {
   bottom: "inception_resnet_b_8_path1_1x1_bn"
   top: "inception_resnet_b_8_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5452,11 +5452,11 @@ layer {
   bottom: "inception_resnet_b_8_path1_1x7"
   top: "inception_resnet_b_8_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5483,8 +5483,8 @@ layer {
   bottom: "inception_resnet_b_8_path1_1x7_bn"
   top: "inception_resnet_b_8_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5512,11 +5512,11 @@ layer {
   bottom: "inception_resnet_b_8_path1_7x1"
   top: "inception_resnet_b_8_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5543,8 +5543,8 @@ layer {
   bottom: "inception_resnet_b_7_elt"
   top: "inception_resnet_b_8_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5571,11 +5571,11 @@ layer {
   bottom: "inception_resnet_b_8_path2_1x1"
   top: "inception_resnet_b_8_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5609,8 +5609,8 @@ layer {
   bottom: "inception_resnet_b_8_concat"
   top: "inception_resnet_b_8_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5637,11 +5637,11 @@ layer {
   bottom: "inception_resnet_b_8_conv_1x1"
   top: "inception_resnet_b_8_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5680,8 +5680,8 @@ layer {
   bottom: "inception_resnet_b_8_elt"
   top: "inception_resnet_b_9_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5708,11 +5708,11 @@ layer {
   bottom: "inception_resnet_b_9_path1_1x1"
   top: "inception_resnet_b_9_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5739,8 +5739,8 @@ layer {
   bottom: "inception_resnet_b_9_path1_1x1_bn"
   top: "inception_resnet_b_9_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5768,11 +5768,11 @@ layer {
   bottom: "inception_resnet_b_9_path1_1x7"
   top: "inception_resnet_b_9_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5799,8 +5799,8 @@ layer {
   bottom: "inception_resnet_b_9_path1_1x7_bn"
   top: "inception_resnet_b_9_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5828,11 +5828,11 @@ layer {
   bottom: "inception_resnet_b_9_path1_7x1"
   top: "inception_resnet_b_9_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5859,8 +5859,8 @@ layer {
   bottom: "inception_resnet_b_8_elt"
   top: "inception_resnet_b_9_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5887,11 +5887,11 @@ layer {
   bottom: "inception_resnet_b_9_path2_1x1"
   top: "inception_resnet_b_9_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5925,8 +5925,8 @@ layer {
   bottom: "inception_resnet_b_9_concat"
   top: "inception_resnet_b_9_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -5953,11 +5953,11 @@ layer {
   bottom: "inception_resnet_b_9_conv_1x1"
   top: "inception_resnet_b_9_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -5996,8 +5996,8 @@ layer {
   bottom: "inception_resnet_b_9_elt"
   top: "inception_resnet_b_10_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6024,11 +6024,11 @@ layer {
   bottom: "inception_resnet_b_10_path1_1x1"
   top: "inception_resnet_b_10_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6055,8 +6055,8 @@ layer {
   bottom: "inception_resnet_b_10_path1_1x1_bn"
   top: "inception_resnet_b_10_path1_1x7"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6084,11 +6084,11 @@ layer {
   bottom: "inception_resnet_b_10_path1_1x7"
   top: "inception_resnet_b_10_path1_1x7_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6115,8 +6115,8 @@ layer {
   bottom: "inception_resnet_b_10_path1_1x7_bn"
   top: "inception_resnet_b_10_path1_7x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6144,11 +6144,11 @@ layer {
   bottom: "inception_resnet_b_10_path1_7x1"
   top: "inception_resnet_b_10_path1_7x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6175,8 +6175,8 @@ layer {
   bottom: "inception_resnet_b_9_elt"
   top: "inception_resnet_b_10_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6203,11 +6203,11 @@ layer {
   bottom: "inception_resnet_b_10_path2_1x1"
   top: "inception_resnet_b_10_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6241,8 +6241,8 @@ layer {
   bottom: "inception_resnet_b_10_concat"
   top: "inception_resnet_b_10_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6269,11 +6269,11 @@ layer {
   bottom: "inception_resnet_b_10_conv_1x1"
   top: "inception_resnet_b_10_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6312,8 +6312,8 @@ layer {
   bottom: "inception_resnet_b_10_elt"
   top: "reduction_b_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6340,11 +6340,11 @@ layer {
   bottom: "reduction_b_path1_1x1"
   top: "reduction_b_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6371,8 +6371,8 @@ layer {
   bottom: "reduction_b_path1_1x1_bn"
   top: "reduction_b_path1_3x3_1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6400,11 +6400,11 @@ layer {
   bottom: "reduction_b_path1_3x3_1"
   top: "reduction_b_path1_3x3_1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6431,8 +6431,8 @@ layer {
   bottom: "reduction_b_path1_3x3_1_bn"
   top: "reduction_b_path1_3x3_2"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6460,11 +6460,11 @@ layer {
   bottom: "reduction_b_path1_3x3_2"
   top: "reduction_b_path1_3x3_2_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6491,8 +6491,8 @@ layer {
   bottom: "inception_resnet_b_10_elt"
   top: "reduction_b_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6519,11 +6519,11 @@ layer {
   bottom: "reduction_b_path2_1x1"
   top: "reduction_b_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6550,8 +6550,8 @@ layer {
   bottom: "reduction_b_path2_1x1_bn"
   top: "reduction_b_path2_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6579,11 +6579,11 @@ layer {
   bottom: "reduction_b_path2_3x3"
   top: "reduction_b_path2_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6610,8 +6610,8 @@ layer {
   bottom: "inception_resnet_b_10_elt"
   top: "reduction_b_path3_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6638,11 +6638,11 @@ layer {
   bottom: "reduction_b_path3_1x1"
   top: "reduction_b_path3_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6669,8 +6669,8 @@ layer {
   bottom: "reduction_b_path3_1x1_bn"
   top: "reduction_b_path3_3x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6698,11 +6698,11 @@ layer {
   bottom: "reduction_b_path3_3x3"
   top: "reduction_b_path3_3x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6753,8 +6753,8 @@ layer {
   bottom: "reduction_b_concat"
   top: "inception_resnet_c_1_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6781,11 +6781,11 @@ layer {
   bottom: "inception_resnet_c_1_path1_1x1"
   top: "inception_resnet_c_1_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6812,8 +6812,8 @@ layer {
   bottom: "inception_resnet_c_1_path1_1x1_bn"
   top: "inception_resnet_c_1_path1_1x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6841,11 +6841,11 @@ layer {
   bottom: "inception_resnet_c_1_path1_1x3"
   top: "inception_resnet_c_1_path1_1x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6872,8 +6872,8 @@ layer {
   bottom: "inception_resnet_c_1_path1_1x3_bn"
   top: "inception_resnet_c_1_path1_3x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6901,11 +6901,11 @@ layer {
   bottom: "inception_resnet_c_1_path1_3x1"
   top: "inception_resnet_c_1_path1_3x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6932,8 +6932,8 @@ layer {
   bottom: "reduction_b_concat"
   top: "inception_resnet_c_1_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -6960,11 +6960,11 @@ layer {
   bottom: "inception_resnet_c_1_path2_1x1"
   top: "inception_resnet_c_1_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -6998,8 +6998,8 @@ layer {
   bottom: "inception_resnet_c_1_concat"
   top: "inception_resnet_c_1_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7026,11 +7026,11 @@ layer {
   bottom: "inception_resnet_c_1_conv_1x1"
   top: "inception_resnet_c_1_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7069,8 +7069,8 @@ layer {
   bottom: "inception_resnet_c_1_elt"
   top: "inception_resnet_c_2_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7097,11 +7097,11 @@ layer {
   bottom: "inception_resnet_c_2_path1_1x1"
   top: "inception_resnet_c_2_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7128,8 +7128,8 @@ layer {
   bottom: "inception_resnet_c_2_path1_1x1_bn"
   top: "inception_resnet_c_2_path1_1x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7157,11 +7157,11 @@ layer {
   bottom: "inception_resnet_c_2_path1_1x3"
   top: "inception_resnet_c_2_path1_1x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7188,8 +7188,8 @@ layer {
   bottom: "inception_resnet_c_2_path1_1x3_bn"
   top: "inception_resnet_c_2_path1_3x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7217,11 +7217,11 @@ layer {
   bottom: "inception_resnet_c_2_path1_3x1"
   top: "inception_resnet_c_2_path1_3x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7248,8 +7248,8 @@ layer {
   bottom: "inception_resnet_c_1_elt"
   top: "inception_resnet_c_2_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7276,11 +7276,11 @@ layer {
   bottom: "inception_resnet_c_2_path2_1x1"
   top: "inception_resnet_c_2_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7314,8 +7314,8 @@ layer {
   bottom: "inception_resnet_c_2_concat"
   top: "inception_resnet_c_2_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7342,11 +7342,11 @@ layer {
   bottom: "inception_resnet_c_2_conv_1x1"
   top: "inception_resnet_c_2_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7385,8 +7385,8 @@ layer {
   bottom: "inception_resnet_c_2_elt"
   top: "inception_resnet_c_3_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7413,11 +7413,11 @@ layer {
   bottom: "inception_resnet_c_3_path1_1x1"
   top: "inception_resnet_c_3_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7444,8 +7444,8 @@ layer {
   bottom: "inception_resnet_c_3_path1_1x1_bn"
   top: "inception_resnet_c_3_path1_1x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7473,11 +7473,11 @@ layer {
   bottom: "inception_resnet_c_3_path1_1x3"
   top: "inception_resnet_c_3_path1_1x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7504,8 +7504,8 @@ layer {
   bottom: "inception_resnet_c_3_path1_1x3_bn"
   top: "inception_resnet_c_3_path1_3x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7533,11 +7533,11 @@ layer {
   bottom: "inception_resnet_c_3_path1_3x1"
   top: "inception_resnet_c_3_path1_3x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7564,8 +7564,8 @@ layer {
   bottom: "inception_resnet_c_2_elt"
   top: "inception_resnet_c_3_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7592,11 +7592,11 @@ layer {
   bottom: "inception_resnet_c_3_path2_1x1"
   top: "inception_resnet_c_3_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7630,8 +7630,8 @@ layer {
   bottom: "inception_resnet_c_3_concat"
   top: "inception_resnet_c_3_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7658,11 +7658,11 @@ layer {
   bottom: "inception_resnet_c_3_conv_1x1"
   top: "inception_resnet_c_3_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7701,8 +7701,8 @@ layer {
   bottom: "inception_resnet_c_3_elt"
   top: "inception_resnet_c_4_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7729,11 +7729,11 @@ layer {
   bottom: "inception_resnet_c_4_path1_1x1"
   top: "inception_resnet_c_4_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7760,8 +7760,8 @@ layer {
   bottom: "inception_resnet_c_4_path1_1x1_bn"
   top: "inception_resnet_c_4_path1_1x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7789,11 +7789,11 @@ layer {
   bottom: "inception_resnet_c_4_path1_1x3"
   top: "inception_resnet_c_4_path1_1x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7820,8 +7820,8 @@ layer {
   bottom: "inception_resnet_c_4_path1_1x3_bn"
   top: "inception_resnet_c_4_path1_3x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7849,11 +7849,11 @@ layer {
   bottom: "inception_resnet_c_4_path1_3x1"
   top: "inception_resnet_c_4_path1_3x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7880,8 +7880,8 @@ layer {
   bottom: "inception_resnet_c_3_elt"
   top: "inception_resnet_c_4_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7908,11 +7908,11 @@ layer {
   bottom: "inception_resnet_c_4_path2_1x1"
   top: "inception_resnet_c_4_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -7946,8 +7946,8 @@ layer {
   bottom: "inception_resnet_c_4_concat"
   top: "inception_resnet_c_4_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -7974,11 +7974,11 @@ layer {
   bottom: "inception_resnet_c_4_conv_1x1"
   top: "inception_resnet_c_4_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -8017,8 +8017,8 @@ layer {
   bottom: "inception_resnet_c_4_elt"
   top: "inception_resnet_c_5_path1_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -8045,11 +8045,11 @@ layer {
   bottom: "inception_resnet_c_5_path1_1x1"
   top: "inception_resnet_c_5_path1_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -8076,8 +8076,8 @@ layer {
   bottom: "inception_resnet_c_5_path1_1x1_bn"
   top: "inception_resnet_c_5_path1_1x3"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -8105,11 +8105,11 @@ layer {
   bottom: "inception_resnet_c_5_path1_1x3"
   top: "inception_resnet_c_5_path1_1x3_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -8136,8 +8136,8 @@ layer {
   bottom: "inception_resnet_c_5_path1_1x3_bn"
   top: "inception_resnet_c_5_path1_3x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -8165,11 +8165,11 @@ layer {
   bottom: "inception_resnet_c_5_path1_3x1"
   top: "inception_resnet_c_5_path1_3x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -8196,8 +8196,8 @@ layer {
   bottom: "inception_resnet_c_4_elt"
   top: "inception_resnet_c_5_path2_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -8224,11 +8224,11 @@ layer {
   bottom: "inception_resnet_c_5_path2_1x1"
   top: "inception_resnet_c_5_path2_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -8262,8 +8262,8 @@ layer {
   bottom: "inception_resnet_c_5_concat"
   top: "inception_resnet_c_5_conv_1x1"
   param {
-    lr_mult: 1.0
-    decay_mult: 1.0
+    lr_mult: 0.0
+    decay_mult: 0.0
   }
   convolution_param {
     engine: CAFFE
@@ -8290,11 +8290,11 @@ layer {
   bottom: "inception_resnet_c_5_conv_1x1"
   top: "inception_resnet_c_5_conv_1x1_bn"
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   param {
-    lr_mult: 1.0
+    lr_mult: 0.0
     decay_mult: 0.0
   }
   bn_param {
@@ -8336,9 +8336,295 @@ layer {
     dropout_ratio: 0.1
   }
 }
-#################################
 
-#################################
+############## Stage #1 ##############
+
+layer {
+  name: "stage1_conv1"
+  type: "Convolution"
+  bottom: "reduction_a_concat"
+  top: "stage1_conv1"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 3
+    pad: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage1_conv1_relu"
+  type: "ReLU"
+  bottom: "stage1_conv1"
+  top: "stage1_conv1"
+}
+layer {
+  name: "stage1_conv2"
+  type: "Convolution"
+  bottom: "stage1_conv1"
+  top: "stage1_conv2"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage1_conv2_relu"
+  type: "ReLU"
+  bottom: "stage1_conv2"
+  top: "stage1_conv2"
+}
+layer {
+  bottom: "stage1_conv2"
+  top: "stage1_conv2"
+  name: "stage1_conv2_drop"
+  type: "Dropout"
+  dropout_param {
+    dropout_ratio: 0.1
+  }
+}
+layer {
+  name: "stage1_conv3"
+  type: "Convolution"
+  bottom: "stage1_conv2"
+  top: "stage1_conv3"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage1_upscore"
+  type: "Deconvolution"
+  bottom: "stage1_conv3"
+  top: "stage1_upscore"
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    bias_term: false
+    pad: 4
+    kernel_size: 16
+    group: 21
+    stride: 8
+    weight_filler {
+      type: "bilinear"
+    }
+  }
+}
+layer {
+  name: "stage1_loss"
+  type: "SoftmaxWithLoss"
+  bottom: "stage1_upscore"
+  bottom: "label"
+  top: "stage1_loss"
+  loss_param {
+    ignore_label: 255
+  }
+  loss_weight: 0.2
+}
+
+layer {
+  name: "stage1_prob"
+  type: "Softmax"
+  bottom: "stage1_upscore"
+  top: "stage1_prob"
+}
+layer {
+  name: "stage1_silence"
+  type: "Silence"
+  bottom: "stage1_prob"
+}
+
+############## Stage #2 ##############
+
+layer {
+  name: "stage2_conv1"
+  type: "Convolution"
+  bottom: "reduction_b_concat"
+  top: "stage2_conv1"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 3
+    pad: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage2_conv1_relu"
+  type: "ReLU"
+  bottom: "stage2_conv1"
+  top: "stage2_conv1"
+}
+layer {
+  name: "stage2_conv2"
+  type: "Convolution"
+  bottom: "stage2_conv1"
+  top: "stage2_conv2"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage2_conv2_relu"
+  type: "ReLU"
+  bottom: "stage2_conv2"
+  top: "stage2_conv2"
+}
+layer {
+  bottom: "stage2_conv2"
+  top: "stage2_conv2"
+  name: "stage2_conv2_drop"
+  type: "Dropout"
+  dropout_param {
+    dropout_ratio: 0.1
+  }
+}
+layer {
+  name: "stage2_conv3"
+  type: "Convolution"
+  bottom: "stage2_conv2"
+  top: "stage2_conv3"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage2_upscore"
+  type: "Deconvolution"
+  bottom: "stage2_conv3"
+  top: "stage2_upscore"
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    bias_term: false
+    pad: 4
+    kernel_size: 16
+    group: 21
+    stride: 8
+    weight_filler {
+      type: "bilinear"
+    }
+  }
+}
+layer {
+  name: "stage2_loss"
+  type: "SoftmaxWithLoss"
+  bottom: "stage2_upscore"
+  bottom: "label"
+  top: "stage2_loss"
+  loss_param {
+    ignore_label: 255
+  }
+  loss_weight: 0.2
+}
+
+layer {
+  name: "stage2_prob"
+  type: "Softmax"
+  bottom: "stage2_upscore"
+  top: "stage2_prob"
+}
+layer {
+  name: "stage2_silence"
+  type: "Silence"
+  bottom: "stage2_prob"
+}
+
+############## Stage #3 ##############
+
 
 layer {
   name: "fc_VOC"
@@ -8354,7 +8640,6 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    engine: CAFFE
     num_output: 21
     kernel_size: 3
     pad: 1
@@ -8376,7 +8661,6 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    engine: CAFFE
     num_output: 21
     bias_term: false
     pad: 4
@@ -8398,7 +8682,17 @@ layer {
   loss_param {
     ignore_label: 255
   }
-  softmax_param {
-    engine: CAFFE
-  }
+  loss_weight: 1
+}
+
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "upscore"
+  top: "prob"
+}
+layer {
+  name: "silence"
+  type: "Silence"
+  bottom: "prob"
 }

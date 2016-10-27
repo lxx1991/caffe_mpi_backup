@@ -40,7 +40,7 @@ void SegDataLayer<Dtype>:: DataLayerSetUp(const vector<Blob<Dtype>*>& bottom, co
 	}
 
 	if (this->layer_param_.seg_data_param().shuffle()){
-		const unsigned int prefectch_rng_seed = caffe_rng_rand();
+		const unsigned int prefectch_rng_seed = 17;//caffe_rng_rand(); // magic number
 		prefetch_rng_.reset(new Caffe::RNG(prefectch_rng_seed));
 		ShuffleImages();
 	}

@@ -1,4 +1,4 @@
-train_net: "examples/IRes_VOC/model.prototxt"
+train_net: "examples/IRes_VOC_hm/model.prototxt"
 base_lr: 0.0001
 momentum: 0.9
 weight_decay: 0.0005
@@ -9,6 +9,6 @@ display: 10
 max_iter: 20000
 iter_size: 3
 snapshot: 2000
-snapshot_prefix: "examples/IRes_VOC/model/unary_mat"
+snapshot_prefix: "examples/IRes_VOC_hm/model/unary_mat"
 solver_mode: GPU
 device_id: [0,1,2,3]
