@@ -3145,6 +3145,183 @@ layer {
 }
 
 
+############## Stage #1 ##############
+
+layer {
+  name: "stage1_conv1"
+  type: "Convolution"
+  bottom: "reduction_a_concat"
+  top: "stage1_conv1"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 3
+    pad: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage1_conv1_relu"
+  type: "ReLU"
+  bottom: "stage1_conv1"
+  top: "stage1_conv1"
+}
+layer {
+  name: "stage1_conv2"
+  type: "Convolution"
+  bottom: "stage1_conv1"
+  top: "stage1_conv2"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage1_conv2_relu"
+  type: "ReLU"
+  bottom: "stage1_conv2"
+  top: "stage1_conv2"
+}
+layer {
+  bottom: "stage1_conv2"
+  top: "stage1_conv2"
+  name: "stage1_conv2_drop"
+  type: "Dropout"
+  dropout_param {
+    dropout_ratio: 0.1
+  }
+}
+layer {
+  name: "stage1_conv3"
+  type: "Convolution"
+  bottom: "stage1_conv2"
+  top: "stage1_conv3"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+
+layer {
+  name: "stage1_upscore"
+  type: "Deconvolution"
+  bottom: "stage1_conv3"
+  top: "stage1_upscore"
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    bias_term: false
+    pad: 4
+    kernel_size: 16
+    group: 21
+    stride: 8
+    weight_filler {
+      type: "bilinear"
+    }
+  }
+}
+
+layer {
+  name: "stage1_loss"
+  type: "SoftmaxWithLoss"
+  bottom: "stage1_upscore"
+  bottom: "label"
+  propagate_down: true
+  propagate_down: false
+  top: "stage1_loss"
+  loss_param {
+    ignore_label: 255
+  }
+  loss_weight: 0.33
+}
+
+layer {
+  name: "stage1_prob_large"
+  type: "Softmax"
+  bottom: "stage1_upscore"
+  top: "stage1_prob_large"
+}
+layer {
+  name: "stage1_mask_large"
+  type: "Mask"
+  bottom: "stage1_prob_large"
+  bottom: "label"
+  top: "stage1_mask_large"
+  top: "stage1_mask_label"
+  propagate_down: false
+  propagate_down: false
+  mask_param {
+    threshold: 0.95
+    ignore_label: 255
+  }
+}
+layer {
+  name: "stage1_mask_large_silence"
+  type: "Silence"
+  bottom: "stage1_mask_large"
+}
+layer {
+  name: "stage1_prob"
+  type: "Softmax"
+  bottom: "stage1_conv3"
+  top: "stage1_prob"
+}
+layer {
+  name: "stage1_mask"
+  type: "Mask"
+  bottom: "stage1_prob"
+  top: "stage1_mask"
+  propagate_down: false
+  mask_param {
+    threshold: 0.95
+  }
+}
+
 ############# remove a pooling ####################
 
 layer {
@@ -3448,15 +3625,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_1_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_1_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_1_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 
@@ -3780,15 +3954,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_2_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_2_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_2_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 
@@ -4111,15 +4282,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_3_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_3_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_3_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -4441,15 +4609,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_4_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_4_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_4_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 
@@ -4772,15 +4937,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_5_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_5_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_5_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 
@@ -5102,15 +5264,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_6_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_6_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_6_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -5432,15 +5591,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_7_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_7_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_7_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -5762,15 +5918,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_8_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_8_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_8_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -6092,15 +6245,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_9_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_9_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_9_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -6422,15 +6572,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_b_10_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage1_mask"
   bottom: "inception_resnet_b_10_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_b_10_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -6892,6 +7039,186 @@ layer {
   bottom: "reduction_b_path4_max"
   top: "reduction_b_concat"
 }
+
+
+############## Stage #2 ##############
+
+layer {
+  name: "stage2_conv1"
+  type: "Convolution"
+  bottom: "reduction_b_concat"
+  top: "stage2_conv1"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 3
+    pad: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage2_conv1_relu"
+  type: "ReLU"
+  bottom: "stage2_conv1"
+  top: "stage2_conv1"
+}
+layer {
+  name: "stage2_conv2"
+  type: "Convolution"
+  bottom: "stage2_conv1"
+  top: "stage2_conv2"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage2_conv2_relu"
+  type: "ReLU"
+  bottom: "stage2_conv2"
+  top: "stage2_conv2"
+}
+layer {
+  bottom: "stage2_conv2"
+  top: "stage2_conv2"
+  name: "stage2_conv2_drop"
+  type: "Dropout"
+  dropout_param {
+    dropout_ratio: 0.1
+  }
+}
+layer {
+  name: "stage2_conv3"
+  type: "Convolution"
+  bottom: "stage2_conv2"
+  top: "stage2_conv3"
+  param {
+    lr_mult: 10
+    decay_mult: 10
+  }
+  param {
+    lr_mult: 20
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage2_upscore"
+  type: "Deconvolution"
+  bottom: "stage2_conv3"
+  top: "stage2_upscore"
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    bias_term: false
+    pad: 4
+    kernel_size: 16
+    group: 21
+    stride: 8
+    weight_filler {
+      type: "bilinear"
+    }
+  }
+}
+layer {
+  name: "stage2_loss"
+  type: "SoftmaxWithLoss"
+  bottom: "stage2_upscore"
+  bottom: "stage1_mask_label"
+  propagate_down: true
+  propagate_down: false
+  top: "stage2_loss"
+  loss_param {
+    ignore_label: 255
+  }
+  loss_weight: 0.33
+}
+
+layer {
+  name: "stage2_prob_large"
+  type: "Softmax"
+  bottom: "stage2_upscore"
+  top: "stage2_prob_large"
+}
+layer {
+  name: "stage2_mask_large"
+  type: "Mask"
+  bottom: "stage2_prob_large"
+  bottom: "label"
+  top: "stage2_mask_large"
+  top: "stage2_mask_label"
+  propagate_down: false
+  propagate_down: false
+  mask_param {
+    threshold: 0.95
+    ignore_label: 255
+  }
+}
+layer {
+  name: "stage2_mask_large_silence"
+  type: "Silence"
+  bottom: "stage2_mask_large"
+}
+layer {
+  name: "stage2_prob"
+  type: "Softmax"
+  bottom: "stage2_conv3"
+  top: "stage2_prob"
+}
+layer {
+  name: "stage2_mask"
+  type: "Mask"
+  bottom: "stage2_prob"
+  top: "stage2_mask"
+  propagate_down: false
+  mask_param {
+    threshold: 0.95
+  }
+}
+
+
+##################################
+
 layer {
   name: "inception_resnet_c_1_path1_1x1"
   type: "Convolution"
@@ -7193,15 +7520,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_c_1_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage2_mask"
   bottom: "inception_resnet_c_1_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_c_1_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -7523,15 +7847,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_c_2_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage2_mask"
   bottom: "inception_resnet_c_2_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_c_2_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -7853,15 +8174,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_c_3_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage2_mask"
   bottom: "inception_resnet_c_3_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_c_3_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -8183,15 +8501,12 @@ layer {
 ####################   clean region  ####################
 layer {
   name: "inception_resnet_c_4_conv_1x1_bn_clean"
-  type: "Eltwise"
+  type: "SpatialFilter"
   bottom: "stage2_mask"
   bottom: "inception_resnet_c_4_conv_1x1_bn"
   propagate_down: false
   propagate_down: true
   top: "inception_resnet_c_4_conv_1x1_bn_clean"
-  eltwise_param {
-    operation: PROD
-  }
 }
 #######################################################
 layer {
@@ -8538,317 +8853,7 @@ layer {
   }
 }
 
-############## Stage #1 ##############
 
-layer {
-  name: "stage1_conv1"
-  type: "Convolution"
-  bottom: "reduction_a_concat"
-  top: "stage1_conv1"
-  param {
-    lr_mult: 10
-    decay_mult: 10
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 128
-    kernel_size: 3
-    pad: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.0
-    }
-  }
-}
-layer {
-  name: "stage1_conv1_relu"
-  type: "ReLU"
-  bottom: "stage1_conv1"
-  top: "stage1_conv1"
-}
-layer {
-  name: "stage1_conv2"
-  type: "Convolution"
-  bottom: "stage1_conv1"
-  top: "stage1_conv2"
-  param {
-    lr_mult: 10
-    decay_mult: 10
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 128
-    kernel_size: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.0
-    }
-  }
-}
-layer {
-  name: "stage1_conv2_relu"
-  type: "ReLU"
-  bottom: "stage1_conv2"
-  top: "stage1_conv2"
-}
-layer {
-  bottom: "stage1_conv2"
-  top: "stage1_conv2"
-  name: "stage1_conv2_drop"
-  type: "Dropout"
-  dropout_param {
-    dropout_ratio: 0.1
-  }
-}
-layer {
-  name: "stage1_conv3"
-  type: "Convolution"
-  bottom: "stage1_conv2"
-  top: "stage1_conv3"
-  param {
-    lr_mult: 10
-    decay_mult: 10
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 21
-    kernel_size: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.0
-    }
-  }
-}
-
-layer {
-  name: "stage1_upscore"
-  type: "Deconvolution"
-  bottom: "stage1_conv3"
-  top: "stage1_upscore"
-  param {
-    lr_mult: 0
-  }
-  convolution_param {
-    num_output: 21
-    bias_term: false
-    pad: 4
-    kernel_size: 16
-    group: 21
-    stride: 8
-    weight_filler {
-      type: "bilinear"
-    }
-  }
-}
-
-layer {
-  name: "stage1_loss"
-  type: "SoftmaxWithLoss"
-  bottom: "stage1_upscore"
-  bottom: "label"
-  propagate_down: true
-  propagate_down: false
-  top: "stage1_loss"
-  loss_param {
-    ignore_label: 255
-  }
-  loss_weight: 0.33
-}
-
-layer {
-  name: "stage1_prob"
-  type: "Softmax"
-  bottom: "stage1_upscore"
-  top: "stage1_prob"
-}
-
-layer {
-  name: "stage1_mask"
-  type: "Mask"
-  bottom: "stage1_prob"
-  bottom: "label"
-  propagate_down: false
-  propagate_down: false
-  top: "stage1_mask"
-  top: "stage1_mask_label"
-  mask_param {
-    threshold: 0.97
-    ignore_label: 255
-  }
-}
-
-############## Stage #2 ##############
-
-layer {
-  name: "stage2_conv1"
-  type: "Convolution"
-  bottom: "reduction_b_concat"
-  top: "stage2_conv1"
-  param {
-    lr_mult: 10
-    decay_mult: 10
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 128
-    kernel_size: 3
-    pad: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.0
-    }
-  }
-}
-layer {
-  name: "stage2_conv1_relu"
-  type: "ReLU"
-  bottom: "stage2_conv1"
-  top: "stage2_conv1"
-}
-layer {
-  name: "stage2_conv2"
-  type: "Convolution"
-  bottom: "stage2_conv1"
-  top: "stage2_conv2"
-  param {
-    lr_mult: 10
-    decay_mult: 10
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 128
-    kernel_size: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.0
-    }
-  }
-}
-layer {
-  name: "stage2_conv2_relu"
-  type: "ReLU"
-  bottom: "stage2_conv2"
-  top: "stage2_conv2"
-}
-layer {
-  bottom: "stage2_conv2"
-  top: "stage2_conv2"
-  name: "stage2_conv2_drop"
-  type: "Dropout"
-  dropout_param {
-    dropout_ratio: 0.1
-  }
-}
-layer {
-  name: "stage2_conv3"
-  type: "Convolution"
-  bottom: "stage2_conv2"
-  top: "stage2_conv3"
-  param {
-    lr_mult: 10
-    decay_mult: 10
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 21
-    kernel_size: 1
-    weight_filler {
-      type: "xavier"
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.0
-    }
-  }
-}
-layer {
-  name: "stage2_upscore"
-  type: "Deconvolution"
-  bottom: "stage2_conv3"
-  top: "stage2_upscore"
-  param {
-    lr_mult: 0
-  }
-  convolution_param {
-    num_output: 21
-    bias_term: false
-    pad: 4
-    kernel_size: 16
-    group: 21
-    stride: 8
-    weight_filler {
-      type: "bilinear"
-    }
-  }
-}
-layer {
-  name: "stage2_loss"
-  type: "SoftmaxWithLoss"
-  bottom: "stage2_upscore"
-  bottom: "stage1_mask_label"
-  propagate_down: true
-  propagate_down: false
-  top: "stage2_loss"
-  loss_param {
-    ignore_label: 255
-  }
-  loss_weight: 0.33
-}
-
-layer {
-  name: "stage2_prob"
-  type: "Softmax"
-  bottom: "stage2_upscore"
-  top: "stage2_prob"
-}
-
-layer {
-  name: "stage2_mask"
-  type: "Mask"
-  bottom: "stage2_prob"
-  bottom: "label"
-  top: "stage2_mask"
-  top: "stage2_mask_label"
-  propagate_down: false
-  propagate_down: false
-  mask_param {
-    threshold: 0.97
-    ignore_label: 255
-  }
-}
 ############## Stage #3 ##############
 
 
