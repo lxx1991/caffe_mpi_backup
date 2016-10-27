@@ -3445,11 +3445,26 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_1_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_1_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_1_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
+
 layer {
   name: "inception_resnet_b_1_elt"
   type: "Eltwise"
   bottom: "reduction_a_concat"
-  bottom: "inception_resnet_b_1_conv_1x1_bn"
+  bottom: "inception_resnet_b_1_conv_1x1_bn_clean"
   top: "inception_resnet_b_1_elt"
   eltwise_param {
     operation: SUM
@@ -3761,11 +3776,27 @@ layer {
     }
   }
 }
+
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_2_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_2_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_2_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
+
 layer {
   name: "inception_resnet_b_2_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_1_elt"
-  bottom: "inception_resnet_b_2_conv_1x1_bn"
+  bottom: "inception_resnet_b_2_conv_1x1_bn_clean"
   top: "inception_resnet_b_2_elt"
   eltwise_param {
     operation: SUM
@@ -4077,11 +4108,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_3_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_3_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_3_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_b_3_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_2_elt"
-  bottom: "inception_resnet_b_3_conv_1x1_bn"
+  bottom: "inception_resnet_b_3_conv_1x1_bn_clean"
   top: "inception_resnet_b_3_elt"
   eltwise_param {
     operation: SUM
@@ -4393,11 +4438,26 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_4_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_4_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_4_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
+
 layer {
   name: "inception_resnet_b_4_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_3_elt"
-  bottom: "inception_resnet_b_4_conv_1x1_bn"
+  bottom: "inception_resnet_b_4_conv_1x1_bn_clean"
   top: "inception_resnet_b_4_elt"
   eltwise_param {
     operation: SUM
@@ -4709,11 +4769,26 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_5_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_5_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_5_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
+
 layer {
   name: "inception_resnet_b_5_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_4_elt"
-  bottom: "inception_resnet_b_5_conv_1x1_bn"
+  bottom: "inception_resnet_b_5_conv_1x1_bn_clean"
   top: "inception_resnet_b_5_elt"
   eltwise_param {
     operation: SUM
@@ -5024,11 +5099,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_6_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_6_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_6_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_b_6_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_5_elt"
-  bottom: "inception_resnet_b_6_conv_1x1_bn"
+  bottom: "inception_resnet_b_6_conv_1x1_bn_clean"
   top: "inception_resnet_b_6_elt"
   eltwise_param {
     operation: SUM
@@ -5340,11 +5429,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_7_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_7_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_7_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_b_7_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_6_elt"
-  bottom: "inception_resnet_b_7_conv_1x1_bn"
+  bottom: "inception_resnet_b_7_conv_1x1_bn_clean"
   top: "inception_resnet_b_7_elt"
   eltwise_param {
     operation: SUM
@@ -5656,11 +5759,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_8_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_8_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_8_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_b_8_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_7_elt"
-  bottom: "inception_resnet_b_8_conv_1x1_bn"
+  bottom: "inception_resnet_b_8_conv_1x1_bn_clean"
   top: "inception_resnet_b_8_elt"
   eltwise_param {
     operation: SUM
@@ -5972,11 +6089,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_9_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_9_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_9_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_b_9_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_8_elt"
-  bottom: "inception_resnet_b_9_conv_1x1_bn"
+  bottom: "inception_resnet_b_9_conv_1x1_bn_clean"
   top: "inception_resnet_b_9_elt"
   eltwise_param {
     operation: SUM
@@ -6288,11 +6419,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_b_10_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage1_mask"
+  bottom: "inception_resnet_b_10_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_b_10_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_b_10_elt"
   type: "Eltwise"
   bottom: "inception_resnet_b_9_elt"
-  bottom: "inception_resnet_b_10_conv_1x1_bn"
+  bottom: "inception_resnet_b_10_conv_1x1_bn_clean"
   top: "inception_resnet_b_10_elt"
   eltwise_param {
     operation: SUM
@@ -7045,11 +7190,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_c_1_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage2_mask"
+  bottom: "inception_resnet_c_1_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_c_1_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_c_1_elt"
   type: "Eltwise"
   bottom: "reduction_b_concat"
-  bottom: "inception_resnet_c_1_conv_1x1_bn"
+  bottom: "inception_resnet_c_1_conv_1x1_bn_clean"
   top: "inception_resnet_c_1_elt"
   eltwise_param {
     operation: SUM
@@ -7361,11 +7520,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_c_2_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage2_mask"
+  bottom: "inception_resnet_c_2_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_c_2_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_c_2_elt"
   type: "Eltwise"
   bottom: "inception_resnet_c_1_elt"
-  bottom: "inception_resnet_c_2_conv_1x1_bn"
+  bottom: "inception_resnet_c_2_conv_1x1_bn_clean"
   top: "inception_resnet_c_2_elt"
   eltwise_param {
     operation: SUM
@@ -7677,11 +7850,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_c_3_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage2_mask"
+  bottom: "inception_resnet_c_3_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_c_3_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_c_3_elt"
   type: "Eltwise"
   bottom: "inception_resnet_c_2_elt"
-  bottom: "inception_resnet_c_3_conv_1x1_bn"
+  bottom: "inception_resnet_c_3_conv_1x1_bn_clean"
   top: "inception_resnet_c_3_elt"
   eltwise_param {
     operation: SUM
@@ -7993,11 +8180,25 @@ layer {
     }
   }
 }
+####################   clean region  ####################
+layer {
+  name: "inception_resnet_c_4_conv_1x1_bn_clean"
+  type: "Eltwise"
+  bottom: "stage2_mask"
+  bottom: "inception_resnet_c_4_conv_1x1_bn"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_c_4_conv_1x1_bn_clean"
+  eltwise_param {
+    operation: PROD
+  }
+}
+#######################################################
 layer {
   name: "inception_resnet_c_4_elt"
   type: "Eltwise"
   bottom: "inception_resnet_c_3_elt"
-  bottom: "inception_resnet_c_4_conv_1x1_bn"
+  bottom: "inception_resnet_c_4_conv_1x1_bn_clean"
   top: "inception_resnet_c_4_elt"
   eltwise_param {
     operation: SUM
@@ -8489,16 +8690,9 @@ layer {
   top: "stage1_mask"
   top: "stage1_mask_label"
   mask_param {
-    negative_label: 0
     threshold: 0.97
     ignore_label: 255
   }
-}
-
-layer {
-  name: "stage1_silence"
-  type: "Silence"
-  bottom: "stage1_mask"
 }
 
 ############## Stage #2 ##############
@@ -8651,18 +8845,10 @@ layer {
   propagate_down: false
   propagate_down: false
   mask_param {
-    negative_label: 0
     threshold: 0.97
     ignore_label: 255
   }
 }
-
-layer {
-  name: "stage2_silence"
-  type: "Silence"
-  bottom: "stage2_mask"
-}
-
 ############## Stage #3 ##############
 
 
