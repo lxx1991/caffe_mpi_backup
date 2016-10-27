@@ -850,7 +850,7 @@ class MaskLayer : public Layer<Dtype> {
   /// @brief Not implemented (non-differentiable function)
   virtual void Backward_cpu(const vector<Blob<Dtype>*>& top,
       const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom) {
-    
+    NOT_IMPLEMENTED;
   }
 
   virtual void Forward_gpu(const vector<Blob<Dtype>*>& bottom,
@@ -862,6 +862,54 @@ class MaskLayer : public Layer<Dtype> {
   Dtype threshold_;
   bool has_negative_label_;
   int negative_label_, ignore_label_;
+};
+
+
+/**
+ * @brief Tests whether the input exceeds a threshold: outputs 1 for inputs
+ *        above threshold; 0 otherwise.
+ */
+template <typename Dtype>
+class SpatialFilterLayer : public Layer<Dtype> {
+ public:
+  /**
+   * @param param provides ThresholdParameter threshold_param,
+   *     with ThresholdLayer options:
+   *   - threshold (\b optional, default 0).
+   *     the threshold value @f$ t @f$ to which the input values are compared.
+   */
+  explicit SpatialFilterLayer(const LayerParameter& param)
+      : Layer<Dtype>(param) {}
+
+  virtual void LayerSetUp(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top);
+
+  virtual void Reshape(const vector<Blob<Dtype>*>& bottom,
+    const vector<Blob<Dtype>*>& top);
+
+  virtual inline const char* type() const { return "SpatialFilter"; }
+  virtual inline int ExactNumBottomBlobs() const { return 2; }
+  virtual inline int ExactNumTopBlobs() const { return 1; }
+
+
+ protected:
+
+  virtual void Forward_cpu(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top) {
+    NOT_IMPLEMENTED;
+  }
+  /// @brief Not implemented (non-differentiable function)
+  virtual void Backward_cpu(const vector<Blob<Dtype>*>& top,
+      const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom) {
+    NOT_IMPLEMENTED;
+  }
+
+  virtual void Forward_gpu(const vector<Blob<Dtype>*>& bottom,
+    const vector<Blob<Dtype>*>& top);
+
+  virtual void Backward_gpu(const vector<Blob<Dtype>*>& top,
+      const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom);
+
 };
 
 
