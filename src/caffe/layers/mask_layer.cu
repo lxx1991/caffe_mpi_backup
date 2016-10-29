@@ -29,10 +29,12 @@ __global__ void MaskForward(const int nthreads, const Dtype threshold, const boo
     const Dtype* prob, Dtype* mask, const int ignore_label, const Dtype* label, Dtype* new_label) {
   CUDA_KERNEL_LOOP(index, nthreads) {
     mask[index] = 1;
-    new_label[index] = label[index];
+    const int label_value = static_cast<int>(label[index]);
+    new_label[index] = label_value;
+
     if (has_negative_label)
     {
-      if (prob[negative_label * spatial_dim + index] > threshold)
+      if (prob[negative_label * spatial_dim + index] > threshold && label_value == negative_label)
       {
         mask[index] = 0;
         new_label[index] = ignore_label;
@@ -40,12 +42,11 @@ __global__ void MaskForward(const int nthreads, const Dtype threshold, const boo
     }
     else
     {
-      for (int i=0; i<channels; i++)
-        if (prob[i * spatial_dim + index] > threshold)
-        {
-          mask[index] = 0;
-          new_label[index] = ignore_label;
-        }
+      if (label_value < channels && prob[label_value * spatial_dim + index] > threshold)
+      {
+        mask[index] = 0;
+        new_label[index] = ignore_label;
+      }
     }
   }
 }
