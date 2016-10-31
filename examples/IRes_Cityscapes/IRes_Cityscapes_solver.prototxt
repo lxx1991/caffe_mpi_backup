@@ -1,0 +1,15 @@
+train_net: "examples/IRes_Cityscapes/model.prototxt"
+base_lr: 0.0001
+momentum: 0.9
+weight_decay: 0.0005
+lr_policy: "step"
+gamma: 0.1
+stepsize: 12000
+display: 10
+max_iter: 30000
+iter_size: 2
+snapshot: 2000
+snapshot_prefix: "examples/IRes_Cityscapes/model/unary_mat"
+solver_mode: GPU
+device_id: [0,1,2,3,4,5,6,7]
+random_seed: 1

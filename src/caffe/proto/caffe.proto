@@ -407,6 +407,9 @@ message TransformationParameter {
 
   //height and width should be multiples of stride
   optional int32 stride = 16 [default = 1];
+  optional int32 upper_size = 17;
+  optional int32 upper_height = 18;
+  optional int32 upper_width = 19;
 }
 
 // Message that stores parameters shared by loss layers
@@ -927,6 +930,7 @@ message SegDataParameter{
   optional string root_dir = 2;
   // Whether or not ImageLayer should shuffle the list of files at every epoch.
   optional bool shuffle = 3 [default = false];
+  optional bool balance = 4 [default = false];
 }
 
 message SigmoidParameter {

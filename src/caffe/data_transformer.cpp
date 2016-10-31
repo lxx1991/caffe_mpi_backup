@@ -328,8 +328,20 @@ void DataTransformer<Dtype>::Transform(const Datum& datum_data, const Datum& dat
   int height = int(datum_height * scale_ratios + 0.5);
   int width = int(datum_width * scale_ratios + 0.5);
 
+
   int crop_height = height / stride * stride;
   int crop_width = width / stride * stride;
+
+  if (param_.has_upper_size())
+  {
+    crop_height = std::min(crop_height, param_.upper_size());
+    crop_width = std::min(crop_width, param_.upper_size());
+  }
+  else if (param_.has_upper_height() && param_.has_upper_width())
+  {
+    crop_height = std::min(crop_height, param_.upper_height());
+    crop_width = std::min(crop_width, param_.upper_width());
+  }
 
 
   int h_off = Rand(height - crop_height + 1);
@@ -361,11 +373,11 @@ void DataTransformer<Dtype>::Transform(const Datum& datum_data, const Datum& dat
           top_index = (c * crop_height + h) * crop_width + (crop_width - 1 - w);
         else 
           top_index = (c * crop_height + h) * crop_width + w;
+
         datum_element = static_cast<Dtype>(cropM.at<uint8_t>(h, w));
         if (has_mean_file) 
         {
-            int fixed_data_index = (c * datum_height +  h) * datum_width + w;
-            ptr[top_index] = (datum_element - mean[fixed_data_index]) * scale;
+            NOT_IMPLEMENTED;
         } 
         else if (has_mean_values) 
           ptr[top_index] =(datum_element - mean_values_[c]) * scale;
@@ -397,8 +409,7 @@ void DataTransformer<Dtype>::Transform(const Datum& datum_data, const Datum& dat
       else 
         top_index = h * crop_width + w;
 
-      datum_element = static_cast<Dtype>(cropM.at<uint8_t>(h, w));
-      ptr[top_index] = datum_element;
+      ptr[top_index] = static_cast<Dtype>(cropM.at<uint8_t>(h, w));
     }
   M.release();
   cropM.release();
