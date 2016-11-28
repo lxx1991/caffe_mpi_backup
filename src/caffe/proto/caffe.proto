@@ -747,9 +747,9 @@ message LRNParameter {
 }
 
 message MaskParameter {
-  optional float threshold = 1;
-  optional uint32 negative_label = 2;
-  optional uint32 ignore_label = 3;
+  optional float threshold_easy = 1 [default = 1.0];
+  optional float threshold_hard = 2 [default = 1.0];
+  optional uint32 ignore_label = 4;
 }
 
 message MemoryDataParameter {

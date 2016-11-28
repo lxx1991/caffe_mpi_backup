@@ -1,0 +1,192 @@
+############## Stage #2 ##############
+
+layer {
+  name: "stage2_conv1"
+  type: "Convolution"
+  bottom: "reduction_b_concat"
+  top: "stage2_conv1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 3
+    pad: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage2_conv1_relu"
+  type: "ReLU"
+  bottom: "stage2_conv1"
+  top: "stage2_conv1"
+}
+layer {
+  name: "stage2_conv2"
+  type: "Convolution"
+  bottom: "stage2_conv1"
+  top: "stage2_conv2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "stage2_conv2_relu"
+  type: "ReLU"
+  bottom: "stage2_conv2"
+  top: "stage2_conv2"
+}
+layer {
+  bottom: "stage2_conv2"
+  top: "stage2_conv2"
+  name: "stage2_conv2_drop"
+  type: "Dropout"
+  dropout_param {
+    dropout_ratio: 0.1
+  }
+}
+layer {
+  name: "stage2_conv3"
+  type: "Convolution"
+  bottom: "stage2_conv2"
+  top: "stage2_conv3"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    kernel_size: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+
+layer {
+  name: "stage2_upscore"
+  type: "Deconvolution"
+  bottom: "stage2_conv3"
+  top: "stage2_upscore"
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 21
+    bias_term: false
+    pad: 4
+    kernel_size: 16
+    group: 21
+    stride: 8
+    weight_filler {
+      type: "bilinear"
+    }
+  }
+}
+
+layer {
+  name: "stage2_loss"
+  type: "SoftmaxWithLoss"
+  bottom: "stage2_upscore"
+  bottom: "stage1_mask_label"
+  propagate_down: true
+  propagate_down: false
+  top: "stage2_loss"
+  loss_param {
+    ignore_label: 255
+  }
+  loss_weight: 0.33
+}
+
+layer {
+  name: "stage2_prob_large"
+  type: "Softmax"
+  bottom: "stage2_upscore"
+  top: "stage2_prob_large"
+}
+
+layer {
+  name: "stage2_mask_large"
+  type: "Mask"
+  bottom: "stage2_prob_large"
+  bottom: "label"
+  top: "stage2_mask_large"
+  top: "stage2_mask_label_large"
+  propagate_down: false
+  propagate_down: false
+  mask_param {
+    threshold_easy: 0.95
+    threshold_hard: 0.98
+    ignore_label: 255
+  }
+}
+
+layer {
+  name: "stage2_mask_large_silence"
+  type: "Silence"
+  bottom: "stage2_mask_large"
+}
+
+layer {
+  name: "stage2_prob"
+  type: "Softmax"
+  bottom: "stage2_conv3"
+  top: "stage2_prob"
+}
+
+layer {
+  name: "stage2_mask"
+  type: "Mask"
+  bottom: "stage2_prob"
+  bottom: "label"
+  propagate_down: false
+  propagate_down: false
+  top: "stage2_mask"
+  top: "stage2_mask_label"
+  mask_param {
+    threshold_easy: 0.95
+    threshold_hard: 0.98
+    ignore_label: 255
+  }
+}
+
+layer {
+  name: "stage2_mask_label_silence"
+  type: "Silence"
+  bottom: "stage2_mask_label"
+}

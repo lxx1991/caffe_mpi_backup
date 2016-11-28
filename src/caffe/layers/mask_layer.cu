@@ -7,46 +7,36 @@
 namespace caffe {
 
 template <typename Dtype>
-__global__ void MaskForward(const int nthreads, const Dtype threshold, const bool has_negative_label, const int negative_label, int spatial_dim, const int channels,
+__global__ void MaskForward(const int nthreads, const Dtype threshold, int spatial_dim, const int channels,
     const Dtype* prob, Dtype* mask) {
   CUDA_KERNEL_LOOP(index, nthreads) {
     mask[index] = 1;
-    if (has_negative_label)
-    {
-      if (prob[negative_label * spatial_dim + index] > threshold) mask[index] = 0;
-    }
-    else
-    {
-      for (int i=0; i<channels; i++)
-        if (prob[i * spatial_dim + index] > threshold) mask[index] = 0;
-    }
+    for (int i=0; i<channels; i++)
+      if (prob[i * spatial_dim + index] > threshold + 1e-9) mask[index] = 0;
   }
 }
 
 
 template <typename Dtype>
-__global__ void MaskForward(const int nthreads, const Dtype threshold, const bool has_negative_label, const int negative_label, const int spatial_dim, const int channels,
+__global__ void MaskForward(const int nthreads, const Dtype threshold_easy, const Dtype threshold_hard, const int spatial_dim, const int channels,
     const Dtype* prob, Dtype* mask, const int ignore_label, const Dtype* label, Dtype* new_label) {
   CUDA_KERNEL_LOOP(index, nthreads) {
     mask[index] = 1;
     const int label_value = static_cast<int>(label[index]);
     new_label[index] = label_value;
-
-    if (has_negative_label)
+    if (label_value < channels && prob[label_value * spatial_dim + index] > threshold_easy + 1e-9)
     {
-      if (prob[negative_label * spatial_dim + index] > threshold && label_value == negative_label)
-      {
-        mask[index] = 0;
-        new_label[index] = ignore_label;
-      }
+      mask[index] = 0;
+      new_label[index] = ignore_label;
     }
     else
     {
-      if (label_value < channels && prob[label_value * spatial_dim + index] > threshold)
-      {
-        mask[index] = 0;
-        new_label[index] = ignore_label;
-      }
+      for (int i = 0; i<channels; i++)
+        if (prob[i * spatial_dim + index] > threshold_hard + 1e-9)
+        {
+          mask[index] = 0;
+          new_label[index] = ignore_label;
+        }
     }
   }
 }
@@ -63,7 +53,7 @@ void MaskLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
   if (top.size() == 1)
   {
      MaskForward<Dtype><<<CAFFE_GET_BLOCKS(count), CAFFE_CUDA_NUM_THREADS>>>(
-        count, threshold_, has_negative_label_, negative_label_, spatial_dim, bottom[0]->channels(), prob, mask);
+        count, threshold_easy_, spatial_dim, bottom[0]->channels(), prob, mask);
   }
   else
   {
@@ -71,8 +61,10 @@ void MaskLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
       Dtype* new_label = top[1]->mutable_gpu_data();
 
       MaskForward<Dtype><<<CAFFE_GET_BLOCKS(count), CAFFE_CUDA_NUM_THREADS>>>(
-        count, threshold_, has_negative_label_, negative_label_, spatial_dim, bottom[0]->channels(), prob, mask, ignore_label_, label_data, new_label);
+        count, threshold_easy_, threshold_hard_, spatial_dim, bottom[0]->channels(), prob, mask, ignore_label_, label_data, new_label);
   }
+
+  
   CUDA_POST_KERNEL_CHECK;
 }
 

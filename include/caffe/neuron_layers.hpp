@@ -859,9 +859,8 @@ class MaskLayer : public Layer<Dtype> {
   virtual void Backward_gpu(const vector<Blob<Dtype>*>& top,
       const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom);
 
-  Dtype threshold_;
-  bool has_negative_label_;
-  int negative_label_, ignore_label_;
+  Dtype threshold_easy_, threshold_hard_;
+  int ignore_label_;
 };
 
 

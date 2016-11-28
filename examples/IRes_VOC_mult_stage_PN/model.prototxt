@@ -8489,7 +8489,7 @@ layer {
   top: "stage1_mask"
   top: "stage1_mask_label"
   mask_param {
-    threshold: 0.97
+    threshold: 0.95
     ignore_label: 255
   }
 }
@@ -8632,7 +8632,6 @@ layer {
   }
   loss_weight: 0.33
 }
-
 layer {
   name: "stage2_prob"
   type: "Softmax"
@@ -8650,7 +8649,7 @@ layer {
   propagate_down: false
   propagate_down: false
   mask_param {
-    threshold: 0.97
+    threshold: 0.95
     ignore_label: 255
   }
 }
@@ -8722,9 +8721,21 @@ layer {
   loss_param {
     ignore_label: 255
   }
-  loss_weight: 1
+  loss_weight: 0.8
 }
-
+layer {
+  name: "loss_global"
+  type: "SoftmaxWithLoss"
+  bottom: "upscore"
+  bottom: "label"
+  propagate_down: true
+  propagate_down: false
+  top: "loss_global"
+  loss_param {
+    ignore_label: 255
+  }
+  loss_weight: 0.2
+}
 layer {
   name: "prob"
   type: "Softmax"

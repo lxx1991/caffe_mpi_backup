@@ -12,11 +12,8 @@ void MaskLayer<Dtype>::LayerSetUp(const vector<Blob<Dtype>*>& bottom,
 
   Layer<Dtype>::LayerSetUp(bottom, top);
   
-  threshold_ = this->layer_param_.mask_param().threshold();  
-  has_negative_label_ = this->layer_param_.mask_param().has_negative_label();
-  if (has_negative_label_) {
-    negative_label_ = this->layer_param_.mask_param().negative_label();
-  }
+  threshold_easy_ = this->layer_param_.mask_param().threshold_easy();  
+  threshold_hard_ = this->layer_param_.mask_param().threshold_hard();  
   
   if (top.size() == 2)
     ignore_label_ = this->layer_param_.mask_param().ignore_label();

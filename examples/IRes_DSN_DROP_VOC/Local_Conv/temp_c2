@@ -1,0 +1,327 @@
+layer {
+  name: "inception_resnet_c_5_path1_1x1"
+  type: "Convolution"
+  bottom: "inception_resnet_c_4_elt"
+  top: "inception_resnet_c_5_path1_1x1"
+  param {
+    lr_mult: 1.0
+    decay_mult: 1.0
+  }
+  convolution_param {
+    engine: CAFFE
+    num_output: 192
+    bias_term: false
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+  }
+}
+layer {
+  name: "inception_resnet_c_5_path1_1x1_bn"
+  type: "BN"
+  bottom: "inception_resnet_c_5_path1_1x1"
+  top: "inception_resnet_c_5_path1_1x1_bn"
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  bn_param {
+    frozen: true
+    slope_filler {
+      type: "constant"
+      value: 1.0
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "inception_resnet_c_5_path1_1x1_relu"
+  type: "ReLU"
+  bottom: "inception_resnet_c_5_path1_1x1_bn"
+  top: "inception_resnet_c_5_path1_1x1_bn"
+}
+layer {
+  name: "inception_resnet_c_5_path1_1x3"
+  type: "Convolution"
+  bottom: "inception_resnet_c_5_path1_1x1_bn"
+  top: "inception_resnet_c_5_path1_1x3"
+  param {
+    lr_mult: 1.0
+    decay_mult: 1.0
+  }
+  convolution_param {
+    engine: CAFFE
+    num_output: 224
+    bias_term: false
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+    pad_h: 0
+    pad_w: 4
+    kernel_h: 1
+    kernel_w: 3
+    dilation: 4
+    stride_h: 1
+    stride_w: 1
+  }
+}
+layer {
+  name: "inception_resnet_c_5_path1_1x3_bn"
+  type: "BN"
+  bottom: "inception_resnet_c_5_path1_1x3"
+  top: "inception_resnet_c_5_path1_1x3_bn"
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  bn_param {
+    frozen: true
+    slope_filler {
+      type: "constant"
+      value: 1.0
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "inception_resnet_c_5_path1_1x3_relu"
+  type: "ReLU"
+  bottom: "inception_resnet_c_5_path1_1x3_bn"
+  top: "inception_resnet_c_5_path1_1x3_bn"
+}
+layer {
+  name: "inception_resnet_c_5_path1_3x1"
+  type: "Convolution"
+  bottom: "inception_resnet_c_5_path1_1x3_bn"
+  top: "inception_resnet_c_5_path1_3x1"
+  param {
+    lr_mult: 1.0
+    decay_mult: 1.0
+  }
+  convolution_param {
+    engine: CAFFE
+    num_output: 256
+    bias_term: false
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+    pad_h: 4
+    pad_w: 0
+    kernel_h: 3
+    kernel_w: 1
+    dilation: 4
+    stride_h: 1
+    stride_w: 1
+  }
+}
+layer {
+  name: "inception_resnet_c_5_path1_3x1_bn"
+  type: "BN"
+  bottom: "inception_resnet_c_5_path1_3x1"
+  top: "inception_resnet_c_5_path1_3x1_bn"
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  bn_param {
+    frozen: true
+    slope_filler {
+      type: "constant"
+      value: 1.0
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "inception_resnet_c_5_path1_3x1_relu"
+  type: "ReLU"
+  bottom: "inception_resnet_c_5_path1_3x1_bn"
+  top: "inception_resnet_c_5_path1_3x1_bn"
+}
+layer {
+  name: "inception_resnet_c_5_path2_1x1"
+  type: "Convolution"
+  bottom: "inception_resnet_c_4_elt"
+  top: "inception_resnet_c_5_path2_1x1"
+  param {
+    lr_mult: 1.0
+    decay_mult: 1.0
+  }
+  convolution_param {
+    engine: CAFFE
+    num_output: 192
+    bias_term: false
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+  }
+}
+layer {
+  name: "inception_resnet_c_5_path2_1x1_bn"
+  type: "BN"
+  bottom: "inception_resnet_c_5_path2_1x1"
+  top: "inception_resnet_c_5_path2_1x1_bn"
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  bn_param {
+    frozen: true
+    slope_filler {
+      type: "constant"
+      value: 1.0
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+layer {
+  name: "inception_resnet_c_5_path2_1x1_relu"
+  type: "ReLU"
+  bottom: "inception_resnet_c_5_path2_1x1_bn"
+  top: "inception_resnet_c_5_path2_1x1_bn"
+}
+layer {
+  name: "inception_resnet_c_5_concat"
+  type: "Concat"
+  bottom: "inception_resnet_c_5_path1_3x1_bn"
+  bottom: "inception_resnet_c_5_path2_1x1_bn"
+  top: "inception_resnet_c_5_concat"
+}
+layer {
+  name: "inception_resnet_c_5_conv_1x1"
+  type: "Convolution"
+  bottom: "inception_resnet_c_5_concat"
+  top: "inception_resnet_c_5_conv_1x1"
+  param {
+    lr_mult: 1.0
+    decay_mult: 1.0
+  }
+  convolution_param {
+    engine: CAFFE
+    num_output: 2048
+    bias_term: false
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    stride_h: 1
+    stride_w: 1
+  }
+}
+layer {
+  name: "inception_resnet_c_5_conv_1x1_bn"
+  type: "BN"
+  bottom: "inception_resnet_c_5_conv_1x1"
+  top: "inception_resnet_c_5_conv_1x1_bn"
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  param {
+    lr_mult: 1.0
+    decay_mult: 0.0
+  }
+  bn_param {
+    frozen: true
+    slope_filler {
+      type: "constant"
+      value: 1.0
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.0
+    }
+  }
+}
+#####################clean##########################
+layer {
+  name: "inception_resnet_c_5_conv_1x1_bn_clean"
+  type: "SpatialFilter"
+  bottom: "stage2_mask"
+  bottom: "inception_resnet_c_5_conv_1x1"
+  propagate_down: false
+  propagate_down: true
+  top: "inception_resnet_c_5_conv_1x1_bn_clean"
+}
+#####################clean##########################
+layer {
+  name: "inception_resnet_c_5_elt"
+  type: "Eltwise"
+  bottom: "inception_resnet_c_4_elt"
+  bottom: "inception_resnet_c_5_conv_1x1_bn_clean"
+  top: "inception_resnet_c_5_elt"
+  eltwise_param {
+    operation: SUM
+    coeff: 1
+    coeff: 0.3
+  }
+}
+layer {
+  name: "inception_resnet_c_5_relu"
+  type: "ReLU"
+  bottom: "inception_resnet_c_5_elt"
+  top: "inception_resnet_c_5_elt"
+}

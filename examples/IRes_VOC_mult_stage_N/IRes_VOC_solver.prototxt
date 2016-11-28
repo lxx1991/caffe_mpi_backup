@@ -8,7 +8,7 @@ stepsize: 6000
 display: 10
 max_iter: 10000
 iter_size: 3
-snapshot: 2000
+snapshot: 500
 snapshot_prefix: "examples/IRes_VOC_mult_stage_N/model/unary_mat"
 solver_mode: GPU
 device_id: [0,1,2,3]

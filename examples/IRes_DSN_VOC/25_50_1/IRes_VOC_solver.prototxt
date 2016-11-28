@@ -1,0 +1,14 @@
+train_net: "examples/IRes_DSN_VOC/25_50_1/model.prototxt"
+base_lr: 0.0001
+momentum: 0.9
+weight_decay: 0.0005
+lr_policy: "step"
+gamma: 0.1
+stepsize: 5000
+display: 10
+max_iter: 8000
+iter_size: 2
+snapshot: 500
+snapshot_prefix: "examples/IRes_DSN_VOC/25_50_1/model/unary_mat"
+solver_mode: GPU
+device_id: [0,1,2,3,4,5,6,7]

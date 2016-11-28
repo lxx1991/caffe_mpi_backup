@@ -8469,7 +8469,7 @@ layer {
   loss_param {
     ignore_label: 255
   }
-  loss_weight: 0.33
+  loss_weight: 0.25
 }
 
 layer {
@@ -8489,8 +8489,7 @@ layer {
   top: "stage1_mask"
   top: "stage1_mask_label"
   mask_param {
-    negative_label: 0
-    threshold: 0.97
+    threshold: 0.95
     ignore_label: 255
   }
 }
@@ -8631,7 +8630,7 @@ layer {
   loss_param {
     ignore_label: 255
   }
-  loss_weight: 0.33
+  loss_weight: 1
 }
 
 layer {
@@ -8651,8 +8650,7 @@ layer {
   propagate_down: false
   propagate_down: false
   mask_param {
-    negative_label: 0
-    threshold: 0.97
+    threshold: 0.95
     ignore_label: 255
   }
 }

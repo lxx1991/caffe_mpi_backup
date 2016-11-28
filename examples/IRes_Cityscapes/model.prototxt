@@ -14,7 +14,7 @@ layer {
   transform_param{
     mirror: true
     scale_ratios: 0.8
-    scale_ratios: 1.2
+    scale_ratios: 1.1
     stride: 32
     upper_height: 480
     upper_width: 960
